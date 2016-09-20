@@ -58,7 +58,7 @@ module Git
       # Submodules have a .git *file* not a .git folder.
       # This file's contents point to the location of
       # where the git refs are held (In the parent repo)
-      if File.file?('.git')
+      if File.file?(opts[:repository])
         git_file = File.open('.git').read[8..-1].strip
         opts[:repository] = git_file
         opts[:index] = git_file + '/index'
